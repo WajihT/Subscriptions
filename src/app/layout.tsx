@@ -2,7 +2,7 @@ import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-import {SpeedInsights} from "@vercel/speed-insights/vue";
+import {SpeedInsights} from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
 	title: "Your subscription tracker",
