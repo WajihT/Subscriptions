@@ -79,7 +79,7 @@ export default function InstructionsPopup({
 			</CardHeader>
 			<CardContent className="pt-4">
 				<div className="prose prose-sm max-w-none text-gray-600 dark:text-gray-300 prose-headings:text-gray-800 dark:prose-headings:text-gray-200 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-strong:text-gray-700 dark:prose-strong:text-gray-300">
-					<ReactMarkdown>{defaultContent}</ReactMarkdown>
+					{/* <ReactMarkdown>{defaultContent}</ReactMarkdown> */}
 				</div>
 			</CardContent>
 		</Card>
