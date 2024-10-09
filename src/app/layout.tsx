@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
+import {SpeedInsights} from "@vercel/speed-insights/vue";
 
 export const metadata: Metadata = {
 	title: "Your subscription tracker",
@@ -14,7 +15,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<html lang="en" className={`${GeistSans.variable}`}>
-			<body>{children}</body>
+			<body>
+			{children}
+			<SpeedInsights />
+			</body>
 		</html>
 	);
 }
