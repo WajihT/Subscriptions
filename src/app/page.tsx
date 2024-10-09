@@ -15,7 +15,7 @@ import { Label } from "@/components/ui/label";
 import { PlusCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import InstructionsPopup from "~/components/InstructionsPopup";
-import MadeWithKodu from "~/components/MadeWithKodu";
+//import MadeWithKodu from "~/components/MadeWithKodu";
 import { useSubscriptionStore } from "~/lib/subscriptionStore";
 
 interface Subscription {
