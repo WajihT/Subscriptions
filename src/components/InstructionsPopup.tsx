@@ -58,7 +58,9 @@ export default function InstructionsPopup({
 
 	if (!isVisible) return null;
 
-	return (
+	return null;
+
+	{/*(
 		<Card className="w-full mb-6 max-w-full border border-gray-200 shadow-lg bg-gray-50 dark:bg-gray-800">
 			<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 border-b border-gray-200 dark:border-gray-700">
 				<div className="flex items-center space-x-2">
@@ -79,9 +81,10 @@ export default function InstructionsPopup({
 			</CardHeader>
 			<CardContent className="pt-4">
 				<div className="prose prose-sm max-w-none text-gray-600 dark:text-gray-300 prose-headings:text-gray-800 dark:prose-headings:text-gray-200 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-strong:text-gray-700 dark:prose-strong:text-gray-300">
-					{/* <ReactMarkdown>{defaultContent}</ReactMarkdown> */}
+					 <ReactMarkdown>{defaultContent}</ReactMarkdown>
 				</div>
 			</CardContent>
 		</Card>
 	);
+	*/}
 }
