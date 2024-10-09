@@ -4,9 +4,9 @@ import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Subs - Your subscription tracker",
-	description: "Track your subscriptions costs with this website",
-	icons: [{ rel: "icon", url: "/favicon.ico" }],
+	title: "Your subscription tracker",
+	description: "Track your subscriptions costs",
+	icons: [{ rel: "icon", url: "/my_logo.ico" }],
 };
 
 export default function RootLayout({
