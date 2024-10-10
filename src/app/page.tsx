@@ -25,6 +25,10 @@ interface Subscription {
 	url: string;
 	price: number;
 	icon: string;
+	currency: string;
+	recurrence: string; //'monthly' | 'yearly' | 'trimestral' | 'semestral'; // Add this
+	startDate: string; // Add this
+	paymentMethod: string;
 }
 
 export default function Component() {
@@ -46,19 +50,25 @@ export default function Component() {
 		const name = formData.get("name") as string;
 		const url = formData.get("url") as string;
 		const price = Number.parseFloat(formData.get("price") as string);
+		const startDate = formData.get("startDate") as string;
+		const recurrence = formData.get("recurrence") as string;
+		const currency = formData.get("currency") as string;
+		const paymentMethod = formData.get("paymentMethod") as string;
 		const icon = `https://www.google.com/s2/favicons?domain=${new URL(url).hostname}&sz=64`;
 
-		if (name && url && price) {
+		if (name && url && price && startDate && recurrence && paymentMethod) {
 			if (editingSubscription) {
-				editSubscription(editingSubscription.id, { name, url, price, icon });
+				editSubscription(editingSubscription.id, { name, url, price, startDate, recurrence, currency, paymentMethod, icon });
 			} else {
-				addSubscription({ name, url, price, icon });
+				addSubscription({ name, url, price, startDate, recurrence, currency, paymentMethod, icon });
 			}
 			setIsOpen(false);
 			setEditingSubscription(null);
 			(event.target as HTMLFormElement).reset();
 		}
 	};
+
+
 
 	const handleEdit = (subscription: Subscription) => {
 		setEditingSubscription(subscription);
@@ -83,7 +93,7 @@ export default function Component() {
 								Add Subscription
 							</Button>
 						</DialogTrigger>
-						<DialogContent className="sm:max-w-[425px] bg-gray-800 text-gray-100">
+						<DialogContent className="sm:max-w-[548px] bg-gray-800 text-gray-100">
 							<DialogHeader>
 								<DialogTitle className="text-white">
 									{editingSubscription ? "Edit Subscription" : "Add New Subscription"}
@@ -133,17 +143,64 @@ export default function Component() {
 										defaultValue={editingSubscription?.price ?? ""}
 									/>
 								</div>
-								<Button
-									type="submit"
-									className="w-full bg-blue-600 hover:bg-blue-700 text-white mt-4"
-								>
+								<div className="grid grid-cols-4 items-center gap-4">
+									<Label htmlFor="currency" className="text-right text-gray-300">
+										Currency
+									</Label>
+									<Input
+										id="currency"
+										name="currency"
+										className="col-span-3 bg-gray-700 text-white"
+										required
+										defaultValue={editingSubscription?.currency ?? ""}
+									/>
+								</div>
+								<div className="grid grid-cols-4 items-center gap-4">
+									<Label htmlFor="recurrence" className="text-right text-gray-300">
+										Recurrence
+									</Label>
+									<Input
+										id="recurrence"
+										name="recurrence"
+										className="col-span-3 bg-gray-700 text-white"
+										required
+										defaultValue={editingSubscription?.recurrence ?? ""}
+									/>
+								</div>
+								<div className="grid grid-cols-4 items-center gap-4">
+									<Label htmlFor="startDate" className="text-right text-gray-300">
+										Start Date
+									</Label>
+									<Input
+										id="startDate"
+										name="startDate"
+										type="date"
+										className="col-span-3 bg-gray-700 text-white"
+										required
+										defaultValue={editingSubscription?.startDate ?? ""}
+									/>
+								</div>
+								<div className="grid grid-cols-4 items-center gap-4">
+									<Label htmlFor="paymentMethod" className="text-right text-gray-300">
+										Payment Method
+									</Label>
+									<Input
+										id="paymentMethod"
+										name="paymentMethod"
+										className="col-span-3 bg-gray-700 text-white"
+										required
+										defaultValue={editingSubscription?.paymentMethod ?? ""}
+									/>
+								</div>
+								<Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white mt-4">
 									{editingSubscription ? "Update Subscription" : "Add Subscription"}
 								</Button>
 							</form>
+
 						</DialogContent>
 					</Dialog>
 				</div>
-				<InstructionsPopup popupKey="show-instructions" />
+				<InstructionsPopup popupKey="show-instructions"/>
 				<div className="mt-8 mb-8 text-3xl font-semibold text-white text-center">
 					Total Monthly: €{totalMonthly.toFixed(2)}
 				</div>

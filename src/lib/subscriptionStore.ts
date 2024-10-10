@@ -7,6 +7,10 @@ interface Subscription {
 	url: string;
 	price: number;
 	icon: string;
+	currency: string;
+	recurrence: string; //'monthly' | 'yearly' | 'trimestral' | 'semestral'; // Add this
+	startDate: string; // Add this
+	paymentMethod: string;
 }
 
 interface SubscriptionStore {
@@ -23,6 +27,10 @@ const defaultSubscriptions: Subscription[] = [
 		url: "https://www.o2online.de/ecareng/uebersicht?subscriptionId=1267960007",
 		price: 52.49,
 		icon: "https://www.google.com/s2/favicons?domain=.o2online.de",
+		currency: "€",
+		recurrence: "monthly",
+		startDate: "01.01.2024",
+		paymentMethod: "paypal",
 	},
 	{
 		id: 2,
@@ -30,6 +38,10 @@ const defaultSubscriptions: Subscription[] = [
 		url: "https://www.studierendenwerk-muenchen-oberbayern.de/wohnen/mein-account/",
 		price: 352.70,
 		icon: "https://www.google.com/s2/favicons?domain=studierendenwerk-muenchen-oberbayern.de/wohnen/mein-account/",
+		currency: "€",
+		recurrence: "monthly",
+		startDate: "01.01.2024",
+		paymentMethod: "paypal",
 	},
 	{
 		id: 3,
@@ -37,6 +49,10 @@ const defaultSubscriptions: Subscription[] = [
 		url: "https://meine.aok.de/",
 		price: 124.00,
 		icon: "https://www.google.com/s2/favicons?domain=meine.aok.de",
+		currency: "€",
+		recurrence: "monthly",
+		startDate: "01.01.2024",
+		paymentMethod: "paypal",
 	},
 	{
 		id: 4,
@@ -44,6 +60,10 @@ const defaultSubscriptions: Subscription[] = [
 		url: "https://www.ubereats.com/",
 		price: 5.99,
 		icon: "https://www.google.com/s2/favicons?domain=ubereats.com",
+		currency: "€",
+		recurrence: "monthly",
+		startDate: "01.01.2024",
+		paymentMethod: "paypal",
 	},
 	{
 		id: 5,
@@ -51,6 +71,10 @@ const defaultSubscriptions: Subscription[] = [
 		url: "https://shop.samsung.com/de/mypage/orders",
 		price: 29.99,
 		icon: "https://www.google.com/s2/favicons?domain=shop.samsung.com/de/mypage/orders",
+		currency: "€",
+		recurrence: "monthly",
+		startDate: "01.01.2024",
+		paymentMethod: "paypal",
 	},
 ];
 
