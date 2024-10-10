@@ -24,9 +24,9 @@ const defaultSubscriptions: Subscription[] = [
 	{
 		id: 1,
 		name: "My O2",
-		url: "https://www.o2online.de/ecareng/uebersicht?subscriptionId=1267960007",
+		url: "https://www.o2online.de/",
 		price: 52.49,
-		icon: "https://www.google.com/s2/favicons?domain=.o2online.de",
+		icon: "https://www.google.com/s2/favicons?domain=o2online.de",
 		currency: "€",
 		recurrence: "monthly",
 		startDate: "01.01.2024",
