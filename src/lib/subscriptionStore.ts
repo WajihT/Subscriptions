@@ -86,7 +86,14 @@ export const useSubscriptionStore = create<SubscriptionStore>()(
 				set((state) => ({
 					subscriptions: [
 						...state.subscriptions,
-						{ ...newSubscription, id: Date.now() },
+						{
+							...newSubscription,
+							id: Date.now(), // Assign a unique ID
+							currency: newSubscription.currency || "€", // Default value if not provided
+							recurrence: newSubscription.recurrence || "monthly", // Default recurrence
+							startDate: newSubscription.startDate || "", // Default start date
+							paymentMethod: newSubscription.paymentMethod || "paypal", // Default payment method
+						},
 					],
 				})),
 			removeSubscription: (id) =>
@@ -99,10 +106,18 @@ export const useSubscriptionStore = create<SubscriptionStore>()(
 				set((state) => ({
 					subscriptions: state.subscriptions.map((subscription) =>
 						subscription.id === id
-							? { ...subscription, ...updatedSubscription }
-							: subscription
+							? {
+								...subscription,
+								...updatedSubscription,
+								currency: updatedSubscription.currency || subscription.currency, // Ensure updated or keep original
+								recurrence: updatedSubscription.recurrence || subscription.recurrence,
+								startDate: updatedSubscription.startDate || subscription.startDate,
+								paymentMethod: updatedSubscription.paymentMethod || subscription.paymentMethod,
+							}
+							: subscription,
 					),
 				})),
+
 		}),
 		{
 			name: "subscription-storage",
