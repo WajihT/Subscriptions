@@ -22,7 +22,6 @@ For those curious about the technology behind Subs Tracker:
 - **Frontend Framework**: Next.js and React
 - **UI Components**: Shadcn UI
 - **State Management**: Zustand
-- **Development Tools**: GitHub Copilot and Kodu AI code extension
 
 ## Getting Started
 
