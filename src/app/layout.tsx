@@ -8,7 +8,7 @@ import { Analytics } from "@vercel/analytics/react"
 export const metadata: Metadata = {
 	title: "Your subscription tracker",
 	description: "Track your subscriptions costs",
-	icons: [{ rel: "icon", url: "/my_logo.ico" }],
+	icons: [{ rel: "icon", url: "/logo.ico" }],
 };
 
 export default function RootLayout({
